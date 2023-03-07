@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>diện tích hình tròn</title>
+</head>
+<body>
+<label>nhập bán kính</label>
+<input type="number" id="bk">
+<label>cm</label>
+<button onclick="cl()" type="button">tính diện tích</button><br><br>
+<label>diện tích là: </label> <label id="s"></label><label id="aa"></label>
+</body>
+<script>
+    function cl() {
+        let r = parseInt(document.getElementById("bk").value);
+        let s = 3.14*r*r;
+        document.getElementById("s").innerHTML=s;
+        document.getElementById("aa").innerHTML = "cm2";
+    }
+</script>
+</html>

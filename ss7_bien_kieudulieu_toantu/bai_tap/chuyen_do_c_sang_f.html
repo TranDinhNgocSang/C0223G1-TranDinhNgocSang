@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>đổi độ C</title>
+</head>
+<body>
+<label>nhập độ C</label>
+<input type="number" id="doc">
+ <button onclick="cl()" type="button">Đổi sang độ F</button><br><br>
+<label>độ F tương ứng là: </label> <label id="dof"></label><label id="aa"></label>
+</body>
+<script>
+    function cl() {
+        let c = parseInt(document.getElementById("doc").value);
+        let f = (c * 1.8) + 3;
+        document.getElementById("dof").innerHTML=f;
+        document.getElementById("aa").innerHTML = "oF";
+    }
+</script>
+</html>
