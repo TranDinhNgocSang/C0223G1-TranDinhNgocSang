@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kt số với 0</title>
+</head>
+<body>
+<input type="number" id="so">
+<button onclick="cl()">so sánh với 0</button><br><br>
+<p id="kq"></p>
+</body>
+<script>
+    function cl() {
+        let so = document.getElementById("so").value*1;
+        let kq = document.getElementById("kq");
+        if(so >0) {
+            kq.innerHTML = so + " lớn hơn 0"
+        }else if (so <0) {
+            kq.innerHTML = so + " bé hơn 0 "
+        }else {
+            kq.innerHTML = "là số 0"
+        }
+    }
+</script>
+</html>

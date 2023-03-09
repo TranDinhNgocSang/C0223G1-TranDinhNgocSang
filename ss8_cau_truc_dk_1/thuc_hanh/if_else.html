@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>if/else</title>
+</head>
+<body>
+<h3>What is the "official" name of JavaScript?</h3>
+<input type="text" id="chao">
+<button type="button" onclick="cl()">send</button>
+<p id="send"></p>
+</body>
+<script>
+    function cl() {
+        let chao = document.getElementById("chao").value;
+        console.log(typeof chao);
+        if (chao == "ECMAScript") {
+            document.getElementById("send").innerHTML = "Right";
+        }else {
+            document.getElementById("send").innerHTML = "Didn't you know? ECMAScrip";
+        }
+    }
+</script>
+</html>

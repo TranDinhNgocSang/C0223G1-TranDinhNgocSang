@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kiểm tra nam nhuận</title>
+</head>
+<body>
+<input type="number" id="nam" placeholder="nhập năm">
+<button type="button" onclick="cl()" id="check">kiểm tra</button>
+<p id="ketQua"></p>
+</body>
+<script>
+    function cl() {
+        let nam = document.getElementById("nam").value * 1;
+        let div4 = nam % 4;
+        let div100 = nam % 100;
+        let div400 = nam % 400;
+        //CÁCH 1
+        // if (div4 == 0) {
+        //     if (div100 == 0) {
+        //         if (div400 == 0) {
+        //             document.getElementById("ketQua").innerHTML = nam + " là năm nhuận"
+        //         } else {
+        //             document.getElementById("ketQua").innerHTML = nam + " không là năm nhuận"
+        //         }
+        //     } else {
+        //         document.getElementById("ketQua").innerHTML = nam + " là năm nhuận"
+        //     }
+        // }else {
+        //     document.getElementById("ketQua").innerHTML = nam +" không là năm nhuận"
+        //         }
+        //     }
+
+
+            // CÁCH 2
+        if(div400 ==0){
+            document.getElementById("ketQua").innerHTML = nam + " là năm nhuận";
+        }else {
+            if (div4 == 0 && div100 != 0)
+            {
+                document.getElementById("ketQua").innerHTML = nam + " là năm nhuận";
+            }else{
+                document.getElementById("ketQua").innerHTML = nam + " không là năm nhuận";
+            }
+        }
+
+    }
+</script>
+</html>
