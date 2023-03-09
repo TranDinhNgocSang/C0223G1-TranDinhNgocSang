@@ -12,15 +12,15 @@
         <th width="200">hoa hồng được nhận</th>
     </tr>
     <tr>
-        <td>0 - 1 tỷ</td>
+        <td>0 đến 1 tỷ</td>
         <td>0%</td>
     </tr>
     <tr>
-        <td>1+ - 3 tỷ</td>
+        <td>1+ đến 3 tỷ</td>
         <td>5%</td>
     </tr>
     <tr>
-        <td>3+- 5 tỷ</td>
+        <td>3+ đến 5 tỷ</td>
         <td>10%</td>
     </tr>
     <tr>
@@ -30,16 +30,22 @@
 </table>
 <p>nhập doanh thu</p>
 <input type="number" id="tien"><label>Tỷ</label><br><br>
-<button type="button" onclick="cl">tính hoa hồng</button>
+<button type="button" onclick="cl()">tính hoa hồng</button>
 <p id="kq"></p>
 </body>
 <script>
-function cl() {
-    let doanhThu = document.getElementById("tien").value*1;
-    let ketQua = document.getElementById("kq");
-    if(doanhThu > 5) {
-
+    function cl() {
+        let doanhThu = document.getElementById("tien").value * 1;
+        let ketQua = document.getElementById("kq");
+        if (doanhThu > 5) {
+            ketQua.innerHTML = "hoa hồng là: "+doanhThu * 0.15 + "tỷ";
+        } else if (doanhThu > 3) {
+            ketQua.innerHTML = "hoa hồng là: "+doanhThu * 0.1 + "tỷ";
+        } else if (doanhThu > 1) {
+            ketQua.innerHTML = "hoa hồng là: "+doanhThu * 0.05 + "tỷ";
+        } else {
+            ketQua.innerHTML = 0;
+        }
     }
-}
 </script>
 </html>
