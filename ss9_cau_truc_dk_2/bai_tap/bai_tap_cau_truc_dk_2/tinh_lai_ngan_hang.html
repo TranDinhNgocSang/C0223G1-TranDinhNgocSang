@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>điểm TB</title>
+</head>
+<body>
+<table cellpadding="5">
+  <tr>
+    <td><label>sô tiền gửi</label></td>
+    <td><input type="number" id="tien" placeholder="triệu VNĐ"></td>
+  </tr>
+  <tr>
+    <td><label>kỳ hạn</label></td>
+    <td><input type="number" id="kyhan" placeholder="tháng"></td>
+  </tr>
+  <tr>
+    <td><label>lãi suất</label></td>
+    <td><input type="number" id="lai" placeholder="%"></td>
+  </tr>
+</table>
+<button type="button" onclick="kichChuot()">tính lãi</button>
+<br><br>
+<label>số tiền nhận được là : </label> <b><label style="font-size: 20px;color: red" id="TB"></label></b>
+<script>
+  function kichChuot() {
+    let tien = document.getElementById("tien").value*1;
+    alert(tien)
+    let kyHan = document.getElementById("kyhan").value*1;
+    alert(kyhan)
+    let lai = document.getElementById("lai").value*1;
+    alert(lai)
+    let laiGhep;
+    laiGhep = tien*(1+lai)^kyHan;
+    document.getElementById("TB").innerHTML = laiGhep;
+  }
+</script>
+</body>
+</html>

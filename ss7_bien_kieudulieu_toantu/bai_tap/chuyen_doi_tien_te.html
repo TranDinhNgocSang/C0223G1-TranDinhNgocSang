@@ -15,39 +15,39 @@
     <tr align="center">
         <td><input type="number" id="tien"></td>
         <td>
-            <select id="a">
+            <select id="donvi1">
                 <option value="VND">VND</option>
                 <option value="USD">USD</option>
             </select>
         </td>
         <td>
-            <select id="b">
+            <select id="donvi2">
                 <option value="VND">VND</option>
                 <option value="USD">USD</option>
             </select>
         </td>
         <td>
-            <button type="button" onclick="cl()">conver</button>
+            <button type="button" onclick="kichChuot()">conver</button>
         </td>
     </tr>
 </table>
 <h4 id="kq"></h4>
 </body>
 <script>
-    function cl() {
+    function kichChuot() {
         let tien = parseInt(document.getElementById("tien").value);
         console.log(typeof tien);
-        let a = document.getElementById("a").value;
-        let b = document.getElementById("b").value;
+        let donVi1 = document.getElementById("donvi1").value;
+        let donVi2 = document.getElementById("donvi2").value;
         let kq;
 
-        if ( a == "USD" && b == "VND") {
+        if ( donVi1 == "USD" && donVi2 == "VND") {
             kq = "Result: " + (tien * 23000) + "VNĐ";
         }
-        else if (a =="VND"&& b == "USD"){
+        else if (donVi1 =="VND"&& donVi2 == "USD"){
             kq = "Result: "+ (tien / 23000) + " $";
         }
-        else if (a == "VND"&& b == "VND") {
+        else if (donVi1 == "VND"&& donVi2 == "VND") {
             kq = "Result: " + tien + "VNĐ";
         } else {
             kq = "Result: " + tien + " $";
