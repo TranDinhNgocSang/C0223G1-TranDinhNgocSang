@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20 số fibonacci</title>
+</head>
+<body>
+<button onclick="kichChuot()">Tìm số đầu tiên trong dãy fibonacci chia hết cho 5</button>
+</body>
+<script>
+    function kichChuot() {
+        let box1 = 0;
+        let box2 = 1;
+        let ketQua;
+        for (let i = 1; i >0; i++) {
+            if (i == 1) {
+                ketQua = 0;
+            } else if (i == 2) {
+                ketQua = 1;
+            }else {
+                ketQua = box1 + box2;
+                box1 = box2;
+                box2 = ketQua;
+            }
+                if( ketQua % 5 == 0 && ketQua!=0){
+                    alert("số đầu tiên trong dãy fibonacci chia hết cho 5 là: "+ketQua);
+                    break;
+            }
+            console.log(ketQua);
+        }
+    }
+</script>
+</html>

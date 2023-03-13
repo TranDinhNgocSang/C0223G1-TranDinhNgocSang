@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FizzBuzz</title>
+</head>
+<body>
+<p id="end"></p>
+</body>
+<script>
+    let ketQua = "";
+    for (let i = 1; i <= 100; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            ketQua +="FizzBuzz <br>"
+            continue
+        }else if (i % 5 === 0) {
+            ketQua += "Buzz <br>"
+            continue;
+        } else if (i % 3 === 0) {
+            ketQua += "Fizz<br>"
+            continue;
+        }else {
+            ketQua += i + "<br>"
+        }
+    }
+    document.getElementById("end").innerHTML = ketQua;
+</script>
+</html>

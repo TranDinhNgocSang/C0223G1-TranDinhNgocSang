@@ -38,13 +38,13 @@
     let tien = document.getElementById("tien").value * 1;
     let ketQua = document.getElementById("ketqua");
     if (tien >= 50) {
-      ketQua.innerHTML = "tiền phải trả là: "+tien * 0.15 + "triệu VNĐ";
+      ketQua.innerHTML = `tiền phải trả là: ${tien * 0.15} triệu VNĐ`;
     } else if (tien >= 30) {
-      ketQua.innerHTML = "tiền phải trả là: "+tien * 0.1 + "triệu VNĐ";
+      ketQua.innerHTML = `tiền phải trả là: ${tien * 0.1} triệu VNĐ`;
     } else if (tien  >= 15) {
-      ketQua.innerHTML = "tiền phải trả là: "+tien * 0.05 + "triệu VNĐ";
+      ketQua.innerHTML = `tiền phải trả là: ${tien * 0.05} triệu VNĐ`;
     } else {
-      ketQua.innerHTML = "tiền phải trả là: 0 VNĐ";
+      ketQua.innerHTML = `tiền phải trả là: 0 VNĐ`  ;
     }
   }
 </script>

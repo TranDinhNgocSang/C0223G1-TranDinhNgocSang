@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vẽ hình chữ nhật</title>
+</head>
+<body>
+<h2 id="ve4"></h2>
+</body>
+</html>
+<script>
+    let ve4 = '';
+    let cot;
+    let hang
+    for (cot = 1; cot <= 10; cot++) {
+        for (hang = 1; hang <= 30; hang++) {
+            if (cot == 1 || cot == 10 || hang == 1 || hang == 30) {
+                ve4 += '*';
+            } else {
+                ve4 += '&nbsp;&nbsp;';
+            }
+        }
+        ve4 += '<br>';
+    }
+    document.getElementById('ve4').innerHTML = ve4;
+</script>
+</script>
