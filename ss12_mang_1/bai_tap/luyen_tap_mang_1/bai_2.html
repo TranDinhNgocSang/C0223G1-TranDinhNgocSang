@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 2</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let arr = [5, 1, 9, 3, 8, 2, 7, 4, 10, 6];
+    let max = arr[0];
+    let index = 0;
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+            index = i;
+        }
+    }
+    console.log("Phần tử có giá trị lớn nhất là: " + max);
+    console.log("Vị trí của phần tử đó là: " + index);
+</script>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 7</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let arr = [3, 5, -2, 9, 1, 8, -4, 6, 0, -7];
+    let V = parseInt(prompt("Nhập giá trị V: "));
+    let index = arr.indexOf(V);
+    if (index !== -1) {
+        arr.splice(index, 1);
+        arr.push(0);
+        console.log(`Đã xoá ${V} khỏi mảng, mảng mới là ${arr}`);
+    } else {
+        console.log(`${V} không thuộc mảng`);
+    }
+</script>

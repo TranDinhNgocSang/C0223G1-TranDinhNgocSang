@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 3</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let text = prompt("nhập chuỗi cần chuyển ký tự");
+    let output = "";
+    for (let i = 0; i < text.length; i++) {
+        if (text[i] >= "a" && text[i] <= "z") {
+            output += text[i].toUpperCase();
+        } else {
+            output += text[i].toLowerCase();
+        }
+    }
+    alert(output);
+</script>
