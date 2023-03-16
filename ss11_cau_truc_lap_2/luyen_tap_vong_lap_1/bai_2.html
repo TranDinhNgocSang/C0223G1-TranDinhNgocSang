@@ -9,15 +9,15 @@
 </body>
 <script>
     let nhietDo = prompt("nhập nhiệt độ");
-    while (!(nhietDo>=20 && nhietDo<=100)){
-        if(nhietDo>100){
+    while (!(nhietDo >= 20 && nhietDo <= 100)) {
+        if (nhietDo > 100) {
             alert("giảm nhiệt độ");
-        }else if (nhietDo<20){
+        } else if (nhietDo < 20) {
             alert("tăng nhiệt độ");
         }
         nhietDo = prompt("nhập lại nhiệt độ");
     }
-    if(nhietDo>=20 && nhietDo<=100) {
+    if (nhietDo >= 20 && nhietDo <= 100) {
         alert("nhập đúng");
     }
 </script>

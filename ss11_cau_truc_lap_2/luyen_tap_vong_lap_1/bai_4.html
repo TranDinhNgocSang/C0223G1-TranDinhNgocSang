@@ -12,19 +12,19 @@
         let box1 = 0;
         let box2 = 1;
         let ketQua;
-        for (let i = 1; i >0; i++) {
+        for (let i = 1; i > 0; i++) {
             if (i == 1) {
                 ketQua = 0;
             } else if (i == 2) {
                 ketQua = 1;
-            }else {
+            } else {
                 ketQua = box1 + box2;
                 box1 = box2;
                 box2 = ketQua;
             }
-                if( ketQua % 5 == 0 && ketQua!=0){
-                    alert("số đầu tiên trong dãy fibonacci chia hết cho 5 là: "+ketQua);
-                    break;
+            if (ketQua % 5 == 0 && ketQua != 0) {
+                alert("số đầu tiên trong dãy fibonacci chia hết cho 5 là: " + ketQua);
+                break;
             }
             console.log(ketQua);
         }
