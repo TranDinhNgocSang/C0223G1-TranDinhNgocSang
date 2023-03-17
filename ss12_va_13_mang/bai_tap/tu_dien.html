@@ -13,14 +13,13 @@
 <script>
     let english = ["apple","banana","orange","mango"];
     let vietmam = ["táo","chuối","cam","soài"];
-    let output = document.getElementById("output");
     function search() {
         let text = document.getElementById("text").value;
         let search = english.indexOf(text);
         if (search !== -1){
-            output.innerHTML = vietmam[search];
+            document.getElementById("output").innerHTML = vietmam[search];
         }else {
-            output.innerHTML = "không có dữ liệu";
+            document.getElementById("output").innerHTML = "không có dữ liệu";
         }
     }
 </script>

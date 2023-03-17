@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 3</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function giaiThua(num) {
+        let sum = 1;
+        for (let i = 1; i <= num; i++) {
+            sum *= i;
+        }
+        return sum
+    }
+
+    let number = +prompt("nhập số nguyên");
+    let result = giaiThua(number)
+    alert(` giai thừa của số ${number} là ${result}`);
+</script>

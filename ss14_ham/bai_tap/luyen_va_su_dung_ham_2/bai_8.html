@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 8</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function daoMang(a) {
+        let temp = "";
+        let last = a.length -1;
+        for (let i=0; i< a.length/2; i++){
+            temp = a[i];
+            a[i] = a[last];
+            a[last] = temp;
+            last--;
+        }
+    }
+    let arr = prompt("nhập nhần tử mảng ngăn cách bởi dấu phẩy").split(",");
+    daoMang(arr);
+    alert(arr);
+</script>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 5</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function min(num1, num2, num3) {
+        let min = num1;
+        if (min > num2) {
+            min = num2;
+        } else if (min > num3) {
+            min = num3;
+        }
+        return min;
+    }
+
+    let number1 = +prompt("nhập số thứ nhất");
+    let number2 = +prompt("nhập số thứ hai");
+    let number3 = +prompt("nhập số thứ ba");
+    alert(`min của 3 số là ${min(number1, number2, number3)}`);
+</script>
