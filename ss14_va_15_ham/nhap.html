@@ -1,73 +1,73 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Quản lý sản phẩm</title>
-    <meta charset="utf-8">
-</head>
-<body>
-<h1>Danh sách sản phẩm</h1>
-<table id="productTable">
-    <tr>
-        <th>STT</th>
-        <th>Tên sản phẩm</th>
-        <th></th>
-    </tr>
-</table>
-<h2>Thêm sản phẩm</h2>
-    <label for="productName">Tên sản phẩm:</label>
-    <input type="text" id="productName">
-    <button type="button" onclick="addProduct()">Thêm</button>
-<h2>Sửa sản phẩm</h2>
-    <label for="editProductName">Tên sản phẩm:</label>
-    <input type="text" id="editProductName">
-    <button type="button" onclick="editProduct()">Sửa</button>
-<script>
-    var productList = [];
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Quản lý sản phẩm</title>-->
+<!--    <meta charset="utf-8">-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Danh sách sản phẩm</h1>-->
+<!--<table id="productTable">-->
+<!--    <tr>-->
+<!--        <th>STT</th>-->
+<!--        <th>Tên sản phẩm</th>-->
+<!--        <th></th>-->
+<!--    </tr>-->
+<!--</table>-->
+<!--<h2>Thêm sản phẩm</h2>-->
+<!--    <label for="productName">Tên sản phẩm:</label>-->
+<!--        <input type="text" id="productName">-->
+<!--        <button type="button" onclick="addProduct()">Thêm</button>-->
+<!--<h2>Sửa sản phẩm</h2>-->
+<!--    <label for="editProductName">Tên sản phẩm:</label>-->
+<!--    <input type="text" id="editProductName">-->
+<!--    <button type="button" onclick="editProduct()">Sửa</button>-->
+<!--<script>-->
+<!--    var productList = [];-->
 
-    function showProductList() {
-        var table = document.getElementById("productTable");
-        var html = "<tr><th>STT</th><th>Tên sản phẩm</th><th></th></tr>";
-        for (var i = 0; i < productList.length; i++) {
-            html += "<tr>";
-            html += "<td>" + (i+1) + "</td>";
-            html += "<td onclick='editProductName(" + i + ")'>" + productList[i] + "</td>";
-            html += "<td><button onclick='deleteProduct(" + i + ")'>Xoá</button></td>";
-            html += "</tr>";
-        }
-        table.innerHTML = html;
-    }
+<!--    function showProductList() {-->
+<!--        var table = document.getElementById("productTable");-->
+<!--        var html = "<tr><th>STT</th><th>Tên sản phẩm</th><th></th></tr>";-->
+<!--        for (var i = 0; i < productList.length; i++) {-->
+<!--            html += "<tr>";-->
+<!--            html += "<td>" + (i+1) + "</td>";-->
+<!--            html += "<td onclick='editProductName(" + i + ")'>" + productList[i] + "</td>";-->
+<!--            html += "<td><button onclick='deleteProduct(" + i + ")'>Xoá</button></td>";-->
+<!--            html += "</tr>";-->
+<!--        }-->
+<!--        table.innerHTML = html;-->
+<!--    }-->
 
-    function addProduct() {
-        var productName = document.getElementById("productName").value;
-        if (productName != "") {
-            productList.push(productName);
-            document.getElementById("productName").value = "";
-            showProductList();
-        }
-    }
+<!--    function addProduct() {-->
+<!--        var productName = document.getElementById("productName").value;-->
+<!--        if (productName != "") {-->
+<!--            productList.push(productName);-->
+<!--            document.getElementById("productName").value = "";-->
+<!--            showProductList();-->
+<!--        }-->
+<!--    }-->
 
-    function editProductName(index) {
-        var productName = productList[index];
-        document.getElementById("editProductName").value = productName;
-    }
+<!--    function editProductName(index) {-->
+<!--        var productName = productList[index];-->
+<!--        document.getElementById("editProductName").value = productName;-->
+<!--    }-->
 
-    function editProduct() {
-        var productName = document.getElementById("editProductName").value;
-        if (productName != "") {
-            productList.splice(productIndex,0, productName);
-            document.getElementById("editProductName").value = "";
-            alert("Đã sửa tên sản phẩm thành " + productName);
-            showProductList();
-        }
-    }
+<!--    function editProduct() {-->
+<!--        var productName = document.getElementById("editProductName").value;-->
+<!--        if (productName != "") {-->
+<!--            productList.splice(productIndex,0, productName);-->
+<!--            document.getElementById("editProductName").value = "";-->
+<!--            alert("Đã sửa tên sản phẩm thành " + productName);-->
+<!--            showProductList();-->
+<!--        }-->
+<!--    }-->
 
-    function deleteProduct(index) {
-        productList.splice(index, 1);
-        alert("Đã xoá sản phẩm");
-        showProductList();
-    }
+<!--    function deleteProduct(index) {-->
+<!--        productList.splice(index, 1);-->
+<!--        alert("Đã xoá sản phẩm");-->
+<!--        showProductList();-->
+<!--    }-->
 
-    showProductList();
-</script>
-</body>
-</html>
+<!--    showProductList();-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->

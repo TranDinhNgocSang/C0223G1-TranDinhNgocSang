@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ưng dụng quản lý sản phẩm</title>
+</head>
+<body>
+<h2>Add New Product</h2>
+<input type="text" id="tenSanPham">
+<button onclick="addproduct()">Add</button>
+<h2>Display All Product</h2>
+<table border="1" cellspacing="0" id="table">
+
+</table>
+</body>
+</html>
+<script>
+    let nameProduct = ["Sony Xperia", "Samsung Galaxy", "Nokia6"];
+
+    function disPlay() {
+        let table = `<tr><th colspan="3">Product Name</th><th>${nameProduct.length} products</th></tr>`
+        for (let i = 0; i < nameProduct.length; i++) {
+    table +=`<tr><td width="150px">${nameProduct[i]}</td><td><button onclick="editProduct(${i})">Edit</button></td><td><button onclick="deleteProduct(${i})">Delete</button></td></tr>`
+        }
+        document.getElementById("table").innerHTML= table;
+    }
+    disPlay()
+    function addproduct(){
+        let product = document.getElementById("tenSanPham").value;
+        if (product != ""){
+            nameProduct.push(product);
+            document.getElementById("tenSanPham").value = "";
+        }
+        disPlay()
+    }
+    function deleteProduct(index) {
+        nameProduct.splice(index,1);
+        disPlay();
+    }
+    function editProduct(index) {
+        let upDate = prompt("Edit tại đây");
+        nameProduct[index]= upDate;
+        disPlay();
+
+    }
+</script>
