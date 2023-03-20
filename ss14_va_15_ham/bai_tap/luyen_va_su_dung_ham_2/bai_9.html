@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 9</title>
+</head>
+<body>
+
+<script>
+    function check(a, b) {
+        let count = 0;
+        let isPrime = false;
+        for (let i = 0; i < a.length; i++) {
+            if (a[i] === b) {
+                count++;
+                isPrime = true
+            }
+        }
+        if (isPrime) {
+            return count;
+        } else {
+            return -1;
+        }
+    }
+
+    let arr = prompt("nhập phần tử của mảng ngăn cách nhau bởi dấu phẩy").split(",");
+    let string = prompt("nhập ký tự kiểm tra có trong mảng không");
+
+    alert(check(arr, string));
+</script>
+</body>
+</html>
