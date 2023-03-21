@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mô tả hình chữ nhật</title>
+</head>
+<body>
+<canvas id="draw"></canvas>
+</body>
+</html>
+<script>
+    class HinhChuNhat {
+        constructor(chieuDai, chieuRong) {
+            this.chieuDai = chieuDai;
+            this.chieuRong = chieuRong;
+        }
+
+        getChieuDai() {
+            return this.chieuDai;
+        }
+
+        getChieuRong() {
+            return this.chieuRong;
+        }
+
+        setChieuDai(chieuDai) {
+            this.chieuDai = chieuDai;
+        }
+
+        setChieuRong(chieuRong) {
+            this.chieuRong = chieuRong;
+        }
+
+
+        tinhDienTich() {
+            return ` diện tích hình chữ nhật là ${this.chieuDai * this.chieuRong} cm2`;
+        }
+
+        tinhChuvi() {
+            return ` chu vi hình chữ nhật là ${2 * (this.chieuRong + this.chieuDai)} cm`;
+        }
+        canvas(){
+            let canvas = document.getElementById("draw");
+            let ctx = canvas.getContext('2d');
+            ctx.fillStyle='#fa4b2a';
+            ctx.fillRect(10, 10, this.chieuDai, this.chieuRong);
+        }
+    }
+
+    let chieuDai = +prompt("nhập chiều dài (cm)");
+    let chieuRong = +prompt("nhập chiều rộng (cm)");
+    let hinhChuNhat = new HinhChuNhat(chieuDai, chieuRong);
+    alert(hinhChuNhat.tinhDienTich());
+    alert(hinhChuNhat.tinhChuvi());
+    hinhChuNhat.canvas();
+    hinhChuNhat.setChieuDai(10);
+    hinhChuNhat.setChieuRong(10);
+    alert("sau khi thay đổi thì " + hinhChuNhat.tinhDienTich());
+    alert("sau khi thay đổi thì " + hinhChuNhat.tinhChuvi());
+    // hinhChuNhat.canvas();
+</script>

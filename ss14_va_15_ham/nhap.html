@@ -1,73 +1,110 @@
-<!--<!DOCTYPE html>-->
-<!--<html>-->
-<!--<head>-->
-<!--    <title>Quản lý sản phẩm</title>-->
-<!--    <meta charset="utf-8">-->
-<!--</head>-->
-<!--<body>-->
-<!--<h1>Danh sách sản phẩm</h1>-->
-<!--<table id="productTable">-->
-<!--    <tr>-->
-<!--        <th>STT</th>-->
-<!--        <th>Tên sản phẩm</th>-->
-<!--        <th></th>-->
-<!--    </tr>-->
-<!--</table>-->
-<!--<h2>Thêm sản phẩm</h2>-->
-<!--    <label for="productName">Tên sản phẩm:</label>-->
-<!--        <input type="text" id="productName">-->
-<!--        <button type="button" onclick="addProduct()">Thêm</button>-->
-<!--<h2>Sửa sản phẩm</h2>-->
-<!--    <label for="editProductName">Tên sản phẩm:</label>-->
-<!--    <input type="text" id="editProductName">-->
-<!--    <button type="button" onclick="editProduct()">Sửa</button>-->
-<!--<script>-->
-<!--    var productList = [];-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+</body>
+</html>
+<script>
+    const canvas = document.querySelector("canvas");
+    const ctx = canvas.getContext("2d");
 
-<!--    function showProductList() {-->
-<!--        var table = document.getElementById("productTable");-->
-<!--        var html = "<tr><th>STT</th><th>Tên sản phẩm</th><th></th></tr>";-->
-<!--        for (var i = 0; i < productList.length; i++) {-->
-<!--            html += "<tr>";-->
-<!--            html += "<td>" + (i+1) + "</td>";-->
-<!--            html += "<td onclick='editProductName(" + i + ")'>" + productList[i] + "</td>";-->
-<!--            html += "<td><button onclick='deleteProduct(" + i + ")'>Xoá</button></td>";-->
-<!--            html += "</tr>";-->
-<!--        }-->
-<!--        table.innerHTML = html;-->
-<!--    }-->
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-<!--    function addProduct() {-->
-<!--        var productName = document.getElementById("productName").value;-->
-<!--        if (productName != "") {-->
-<!--            productList.push(productName);-->
-<!--            document.getElementById("productName").value = "";-->
-<!--            showProductList();-->
-<!--        }-->
-<!--    }-->
+    const colors = ["#ffa400", "#3D6EF7", "#ff6bcb", "#e74c3c", "#20E3B2"];
 
-<!--    function editProductName(index) {-->
-<!--        var productName = productList[index];-->
-<!--        document.getElementById("editProductName").value = productName;-->
-<!--    }-->
+    function randomColor(colors) {
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
 
-<!--    function editProduct() {-->
-<!--        var productName = document.getElementById("editProductName").value;-->
-<!--        if (productName != "") {-->
-<!--            productList.splice(productIndex,0, productName);-->
-<!--            document.getElementById("editProductName").value = "";-->
-<!--            alert("Đã sửa tên sản phẩm thành " + productName);-->
-<!--            showProductList();-->
-<!--        }-->
-<!--    }-->
+    const mouse = {
+        x: window.innerWidth / 2,
+        y: window.innerHeight / 2,
+    };
 
-<!--    function deleteProduct(index) {-->
-<!--        productList.splice(index, 1);-->
-<!--        alert("Đã xoá sản phẩm");-->
-<!--        showProductList();-->
-<!--    }-->
+    function Particle(x, y, radius, color, velocity) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.color = color;
+        this.velocity = velocity;
+        this.ttl = 200;
+        // time to leave
 
-<!--    showProductList();-->
-<!--</script>-->
-<!--</body>-->
-<!--</html>-->
+        this.draw = () => {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+            ctx.closePath();
+        };
+
+        this.update = () => {
+            this.draw();
+            this.x += this.velocity.x;
+            this.y += this.velocity.y;
+            this.ttl--;
+        };
+    }
+    // const partcile = new Particle(100, 100, 10, "red");
+    let particles;
+    const partcilesCount = 30;
+    function init() {
+        particles = [];
+        for (let index = 0; index < partcilesCount; index++) {
+            const radians = (Math.PI * 2) / partcilesCount;
+            const x = canvas.width / 2;
+            const y = canvas.height / 2;
+            const velocity = {
+                x: Math.cos(radians * index),
+                y: Math.sin(radians * index),
+            };
+            particles.push(new Particle(x, y, 5, randomColor(colors), velocity));
+        }
+    }
+
+    function generateCircles() {
+        setTimeout(generateCircles, 200);
+        for (let index = 0; index < partcilesCount; index++) {
+            const radians = (Math.PI * 2) / partcilesCount;
+            const x = mouse.x;
+            const y = mouse.y;
+            const velocity = {
+                x: Math.cos(radians * index),
+                y: Math.sin(radians * index),
+            };
+            particles.push(new Particle(x, y, 5, randomColor(colors), velocity));
+        }
+    }
+
+    function animate() {
+        requestAnimationFrame(animate);
+        ctx.fillStyle = "rgba(0,0,0,0.05)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((item, index) => {
+            if (item.ttl === 0) {
+                particles.splice(index, 1);
+            }
+            item.update();
+        });
+        // partcile.update();
+    }
+    init();
+    animate();
+    generateCircles();
+    // arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean):
+
+    // partcile.draw();
+    // console.log("partcile", partcile);
+    window.addEventListener("mousemove", function (event) {
+        mouse.x = event.clientX;
+        mouse.y = event.clientY;
+    });
+</script>
+
