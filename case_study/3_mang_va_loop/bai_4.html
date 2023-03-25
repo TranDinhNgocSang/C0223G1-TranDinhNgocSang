@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Menu</h2>
+
+<table cellpadding="5">
+    <tr>
+        <td>1</td>
+        <td>Cafe</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Cam vắt</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Nước ép cà rốt</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Nước ép cà chua</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Nước lọc</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Nước dừa</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>Thoát gọi món</td>
+    </tr>
+
+</table>
+<button onclick="clickOder()">Oder</button>
+</body>
+</html>
+<script>
+    function clickOder() {
+        let sum = 0;
+        do {
+            oder = prompt("nhập số tương ứng trên menu để oder (1-7)")
+            switch (oder) {
+                case "1" :
+                    alert("Cafe 25,000đ/ly");
+                    quantityCafe = +prompt("mời nhập số lượng");
+                    alert("tổng tiền là: " + (sum += 25000 * quantityCafe) + " đ");
+                    break;
+                case "2" :
+                    alert("Cam vắt 40,000đ/ly");
+                    quantityOrange = +prompt("mời nhập số lượng");
+                    alert("tổng tiền là: " + (sum += 40000 * quantityOrange) + " đ");
+                    break;
+                case "3" :
+                    alert("Nước ép cà rốt 40,000đ/ly");
+                    quantityCarrot = +prompt("mời nhập số lượng");
+                    alert("tổng tiền là: " + (sum += 40000 * quantityCarrot) + " đ");
+                    break;
+                case "4" :
+                    alert("Nước ép cà chua 40,000đ/ly");
+                    quantityTomato = +prompt("mời nhập số lượng");
+                    alert("tổng tiền là: " + (sum += 40000 * quantityTomato) + " đ");
+                    break;
+                case "5" :
+                    alert("Nước lọc 15,000đ/ly");
+                    quantityWater = +prompt("mời nhập số lượng");
+                    alert("tổng tiền là: " + (sum += 15000 * quantityWater) + " đ");
+                    break;
+                case "6" :
+                    alert("Nước dừa 50,000đ/ly");
+                    quantityCoconut = +prompt("mời nhập số lượng");
+                    alert("tổng tiền là: " + (sum += 50000 * quantityCoconut) + " đ");
+                    break;
+                case "7" :
+                    alert("kết thúc oder");
+                    break;
+                default:
+                    alert("bạn nhập sai rồi");
+            }
+        } while (oder != 7);
+    }
+</script>

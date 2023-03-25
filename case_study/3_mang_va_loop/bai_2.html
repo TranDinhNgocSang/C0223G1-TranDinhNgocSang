@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let arrA = [1, 2, 3];
+    let arrB = [1, 2, 3, 5, 3, 8, 4, 6, 9, 7, 8, 5, 6];
+
+    function missingValue(arrA, arrB) {
+        let arrC = [];
+        for (let i = 0; i < arrB.length; i++) {
+            if (arrA.indexOf(arrB[i]) === -1 && arrC.indexOf(arrB[i]) === -1) {
+                arrC.push(arrB[i])
+            }
+
+        }
+        arrC.sort((a, b) => {
+            return a - b
+        })
+        return arrC
+    }
+
+    console.log(arrA);
+    console.log(arrB);
+    console.log(missingValue(arrA, arrB));
+
+</script>

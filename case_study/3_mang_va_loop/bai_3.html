@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let numerators = [5, 2, 5];
+    let denominators = [6, 3, 4];
+
+    function maxFraction(numerators, denominators) {
+        let max = numerators[0] / denominators[0];
+        let result;
+        for (let i = 1; i < numerators.length; i++) {
+            if (max < numerators[i] / denominators[i]) {
+                result = i
+            }
+        }
+        return result
+    }
+
+    console.log(numerators);
+    console.log(denominators);
+    console.log("chỉ số của phấn số lớn nhất là: " +maxFraction(numerators, denominators))
+</script>

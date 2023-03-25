@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let string = prompt("xâu kí tự cần đếm số lượng ký tự khác nhau trong xâu đó");
+    function differentSymbolsNaive() {
+        let arr = [];
+        for (let i = 0; i < string.length; i++) {
+            if (arr.indexOf(string[i]) === -1) {
+                arr.push(string[i])
+            }
+        }
+        return arr.length
+    }
+    alert(differentSymbolsNaive(string))
+</script>

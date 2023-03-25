@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let string1 = "abcde11111111";
+    let string2 = "a22e222c2222d22b222";
+    function commonCharacterCount() {
+        let array = [];
+        for (let i = 0; i < string1.length; i++) {
+            if (string2.indexOf(string1[i]) !== -1 && array.indexOf(string1[i]) === -1) {
+                array.push(string1[i]);
+            }
+        }
+        return array.length;
+    }
+    alert(string1);
+    alert(string2);
+    alert("số ký tự giống nhau trong 2 chuỗi là: "+commonCharacterCount(string1,string2));
+</script>
