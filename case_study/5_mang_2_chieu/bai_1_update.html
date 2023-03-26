@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1" cellspacing="0" id="table"></table><br>
+<button onclick="clickEnd()">Tính tổng số chẵn trong ma trận</button>
+</body>
+</html>
+<script>
+    alert("nhập ma trận có kích thước m*n");
+    let m = +prompt("nhập m");
+    let n = +prompt("nhập n");
+    function calculateEvenToltal(m,n) {
+        let arr = [];
+        let evenToltal = 0;
+        let table = "";
+        for (let i = 0; i < m; i++) {
+            arr[i] = new Array(n);
+            table += `<tr>`;
+            for (let j = 0; j < n; j++) {
+                table += `<td style="width: 25px" align="center">${arr[i][j] = (i + 1) * (j + 1)}</td>`;
+                if ((i + 1) % 2 === 0 || (j + 1) % 2 === 0) {
+                    evenToltal += arr[i][j];
+                }
+            }
+            table += `</tr>`;
+        }
+        document.getElementById("table").innerHTML = table;
+        return evenToltal
+    }
+    calculateEvenToltal(m,n);
+    function clickEnd() {
+        alert("tổng số chẳn có trong ma trận là: "+calculateEvenToltal(m,n));
+    }
+</script>
