@@ -16,14 +16,14 @@
         let arrC = [];
         for (let i = 0; i < arrB.length; i++) {
             if (arrA.indexOf(arrB[i]) === -1 && arrC.indexOf(arrB[i]) === -1) {
-                arrC.push(arrB[i])
+                arrC.push(arrB[i]);
             }
 
         }
         arrC.sort((a, b) => {
-            return a - b
+            return a - b;
         })
-        return arrC
+        return arrC;
     }
 
     console.log(arrA);

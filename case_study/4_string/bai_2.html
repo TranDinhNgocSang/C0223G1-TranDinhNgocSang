@@ -10,14 +10,16 @@
 </html>
 <script>
     let string = prompt("xâu kí tự cần đếm số lượng ký tự khác nhau trong xâu đó");
+
     function differentSymbolsNaive() {
         let arr = [];
         for (let i = 0; i < string.length; i++) {
             if (arr.indexOf(string[i]) === -1) {
-                arr.push(string[i])
+                arr.push(string[i]);
             }
         }
-        return arr.length
+        return arr.length;
     }
-    alert(differentSymbolsNaive(string))
+
+    alert(differentSymbolsNaive(string));
 </script>

@@ -15,7 +15,8 @@
     alert("nhập ma trận có kích thước m*n");
     let m = +prompt("nhập m");
     let n = +prompt("nhập n");
-    function calculateEvenToltal(m,n) {
+
+    function calculateEvenToltal(m, n) {
         let arr = [];
         let evenToltal = 0;
         for (let i = 0; i < m; i++) {
@@ -29,22 +30,25 @@
         }
         return evenToltal;
     }
+
     function clickEnd() {
-        alert("tổng các số chẵn trong ma trận là: "+calculateEvenToltal(m,n));
+        alert("tổng các số chẵn trong ma trận là: " + calculateEvenToltal(m, n));
 
     }
+
     // hiển thị (bonus)
-    function drawTable(m,n) {
-        calculateEvenToltal(m,n);
+    function drawTable(m, n) {
+        calculateEvenToltal(m, n);
         let table = "";
         for (let i = 0; i < m; i++) {
             table += `<tr>`;
             for (let j = 0; j < n; j++) {
-                table += `<td style="width: 25px" align="center">${(i+1)*(j+1)}</td>`;
+                table += `<td style="width: 25px" align="center">${(i + 1) * (j + 1)}</td>`;
             }
             table += `</tr>`;
         }
         document.getElementById("table").innerHTML = table;
     }
-    drawTable(m,n);
+
+    drawTable(m, n);
 </script>

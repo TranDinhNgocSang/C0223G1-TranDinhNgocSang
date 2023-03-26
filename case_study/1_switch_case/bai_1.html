@@ -6,7 +6,8 @@
 </head>
 <body>
 <input type="number" id="salary" placeholder="nhập tiền lương (triệu VNĐ)" style="width: 200px">
-<button onclick="check()">check</button><br>
+<button onclick="check()">check</button>
+<br>
 <p id="tax"></p>
 <p id="salaryAfter"></p>
 </body>
@@ -21,7 +22,7 @@
         } else {
             tax = salary * 0.2;
         }
-        document.getElementById("tax").innerHTML = "tiền thuế phải đóng là: "+tax+ " triệu đồng";
-        document.getElementById("salaryAfter").innerHTML = "tiền lương thực lãnh là: "+ (salary - tax)+ " triệu đồng";
+        document.getElementById("tax").innerHTML = "tiền thuế phải đóng là: " + tax + " triệu đồng";
+        document.getElementById("salaryAfter").innerHTML = "tiền lương thực lãnh là: " + (salary - tax) + " triệu đồng";
     }
 </script>

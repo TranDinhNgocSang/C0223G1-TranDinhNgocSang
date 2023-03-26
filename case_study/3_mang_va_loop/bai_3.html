@@ -17,13 +17,13 @@
         let result;
         for (let i = 1; i < numerators.length; i++) {
             if (max < numerators[i] / denominators[i]) {
-                result = i
+                result = i;
             }
         }
-        return result
+        return result;
     }
 
     console.log(numerators);
     console.log(denominators);
-    console.log("chỉ số của phấn số lớn nhất là: " +maxFraction(numerators, denominators))
+    console.log("chỉ số của phấn số lớn nhất là: " +maxFraction(numerators, denominators));
 </script>

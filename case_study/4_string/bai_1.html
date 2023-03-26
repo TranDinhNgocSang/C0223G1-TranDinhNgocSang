@@ -10,12 +10,12 @@
 </html>
 <script>
     let string = prompt("nhập xâu ký tự chưa chuẩn hóa");
-    alert(string)
+    alert(string);
     let arr = string.trim().split("");
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] === " " && arr[i + 1] === " ") {
             arr.splice(i + 1, 1);
-            i--
+            i--;
         }
     }
     string = arr.join("");
@@ -30,6 +30,6 @@
         }
     }
     string = arr2.join(" ");
-    alert("xâu ký tự sau khi chuẩn hóa: "+ string)
+    alert("xâu ký tự sau khi chuẩn hóa: " + string);
     alert("từ dài nhất trong xâu là: " + textMax);
 </script>
