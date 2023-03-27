@@ -9,28 +9,29 @@
 </body>
 </html>
 <script>
-    let string = prompt("nhập xâu ký tự chưa chuẩn hóa");
+    let string = "      tran     DINH        ngOC        sang        ";
     alert(string);
-    let arr = string.trim().split("");
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] === " " && arr[i + 1] === " ") {
-            arr.splice(i + 1, 1);
-            i--;
+
+    function changeString() {
+        let arr = string.trim().toLowerCase().split(" ");
+        let arr2 = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] !== "") {
+                arr2.push(arr[i]);
+            }
         }
-    }
-    string = arr.join("");
-    string = string.toLowerCase();
-    let arr2 = string.split(" ");
-    let lengthMax = arr2[0].length;
-    let textMax = arr2[0];
-    for (let i = 0; i < arr2.length; i++) {
-        arr2[i] = arr2[i][0].toUpperCase() + arr2[i].slice(1);
-        if (lengthMax < arr2[i].length) {
-            lengthMax = arr2[i].length;
-            textMax = arr2[i];
+        let lengthMax = arr2[0].length;
+        let textMax = arr2[0];
+        for (let i = 0; i < arr2.length; i++) {
+            arr2[i] = arr2[i][0].toUpperCase() + arr2[i].slice(1);
+            if (lengthMax < arr2[i].length) {
+                lengthMax = arr2[i].length;
+                textMax = arr2[i];
+            }
         }
+        let result = arr2.join(" ");
+        alert("xâu ký tự sau khi chuẩn hóa: " + result);
+        alert("từ dài nhất trong xâu là: " + textMax);
     }
-    string = arr2.join(" ");
-    alert("xâu ký tự sau khi chuẩn hóa: " + string);
-    alert("từ dài nhất trong xâu là: " + textMax);
+    changeString(string);
 </script>
