@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="addStudent()">Thêm mới học viên</button>
+<button onclick="editStudent()">Sửa thông tin học viên</button>
+<button onclick="deleteStudent()">Xóa học viên</button>
+<br><br>
+<table id="table" border="1" cellspacing="0" cellpadding="8"></table>
+</body>
+</html>
+<script>
+    class Students {
+        constructor(id, name, classSchool, email, dateOfBith) {
+            this.id = id;
+            this.name = name;
+            this.classSchool = classSchool;
+            this.email = email;
+            this.dateOfBith = dateOfBith;
+        }
+
+
+        getId() {
+            return this.id;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        getClassSchool() {
+            return this.classSchool;
+        }
+
+        getEmail() {
+            return this.email;
+        }
+
+        getDateOfBith() {
+            return this.dateOfBith;
+        }
+
+        setId(value) {
+            this.id = value;
+        }
+
+        setName(value) {
+            this.name = value;
+        }
+
+        setClassSchool(value) {
+            this.classSchool = value;
+        }
+
+        setEmail(value) {
+            this.email = value;
+        }
+
+        setDateOfBith(value) {
+            this.dateOfBith = value;
+        }
+    }
+
+    let studentManagement = [];
+    let student1 = new Students("HV-001", "Nguyễn Văn A", "C0222G1", "vanA@gmail.com", "20/01/2000");
+    let student2 = new Students("HV-002", "Nguyễn Văn B", "C0222G1", "vanB@gmail.com", "20/05/2000");
+    studentManagement.push(student1, student2);
+
+    function display() {
+        let table = `<tr><th>Mã học viên</th><th>Tên</th><th>Lớp</th><th>Email</th><th>Ngày sinh</th></tr>`
+        for (let i = 0; i < studentManagement.length; i++) {
+            table += `<tr><td>${studentManagement[i].getId()}</td><td>${studentManagement[i].getName()}</td><td>${studentManagement[i].getClassSchool()}</td>
+<td>${studentManagement[i].getEmail()}</td><td>${studentManagement[i].getDateOfBith()}</td></tr>`;
+        }
+        document.getElementById("table").innerHTML = table;
+    }
+
+    display();
+
+    function addStudent() {
+        let newStudent = new Students();
+        let addId = prompt("nhập mã học viên");
+        let addName = prompt("nhập tên học viên");
+        let addClass = prompt("nhập lớp");
+        let addEmail = prompt("nhập email");
+        let addDateOfBith = prompt("nhập ngày sinh");
+        newStudent.id = addId;
+        newStudent.name = addName;
+        newStudent.classSchool = addClass;
+        newStudent.email = addEmail;
+        newStudent.dateOfBith = addDateOfBith;
+        studentManagement.push(newStudent);
+        display();
+    }
+
+    function editStudent() {
+        let editId = prompt("nhập mã học viên cần chỉnh sửa");
+        let checkId;
+        let flag = false;
+        for (let i = 0; i < studentManagement.length; i++) {
+            if (studentManagement[i].id === editId) {
+                checkId = i;
+                flag = true;
+                break;
+            }
+        }
+        if (flag) {
+            let editName = prompt("sửa tên học viên");
+            let editClass = prompt("sửa lớp");
+            let editEmail = prompt("sửa email");
+            let editDateOfBith = prompt("sửa ngày sinh");
+            studentManagement[checkId].id = editId;
+            studentManagement[checkId].name = editName;
+            studentManagement[checkId].classSchool = editClass;
+            studentManagement[checkId].email = editEmail;
+            studentManagement[checkId].dateOfBith = editDateOfBith;
+        } else {
+            alert("Mã học viên không tồn tại");
+        }
+        display();
+    }
+
+    function deleteStudent() {
+        let deleteId = prompt("nhập mã học viên cần xóa");
+        let checkId;
+        let flag = false;
+        for (let i = 0; i < studentManagement.length; i++) {
+            if (studentManagement[i].id === deleteId) {
+                checkId = i;
+                flag = true;
+                break;
+            }
+        }
+        if (flag) {
+            let conf = confirm("bạn có muốn xóa học viên này")
+            if (conf) {
+                studentManagement.splice(checkId, 1);
+            }
+        } else {
+            alert("Mã học viên không tồn tại");
+        }
+        display();
+    }
+
+
+</script>

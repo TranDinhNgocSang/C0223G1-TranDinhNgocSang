@@ -11,7 +11,7 @@
 <script>
     let string = prompt("xâu kí tự cần đếm số lượng ký tự khác nhau trong xâu đó");
 
-    function differentSymbolsNaive() {
+    function differentSymbolsNaive(string) {
         let arr = [];
         for (let i = 0; i < string.length; i++) {
             if (arr.indexOf(string[i]) === -1) {

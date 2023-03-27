@@ -15,14 +15,20 @@
 <script>
     function check(salary = +document.getElementById("salary").value) {
         let tax;
-        if (salary < 7) {
-            tax = salary * 0.05;
-        } else if (salary < 15) {
-            tax = salary * 0.1;
+        if (salary < 0) {
+            alert("nhập sai giá trị");
         } else {
-            tax = salary * 0.2;
+            if (salary < 7) {
+                tax = salary * 0.05;
+            } else if (salary < 15) {
+                tax = salary * 0.1;
+            } else {
+                tax = salary * 0.2;
+            }
+            document.getElementById("tax").innerHTML = "tiền thuế phải đóng là: " + tax + " triệu đồng";
+            document.getElementById("salaryAfter").innerHTML = "tiền lương thực lãnh là: " + (salary - tax) + " triệu đồng";
         }
-        document.getElementById("tax").innerHTML = "tiền thuế phải đóng là: " + tax + " triệu đồng";
-        document.getElementById("salaryAfter").innerHTML = "tiền lương thực lãnh là: " + (salary - tax) + " triệu đồng";
+        document.getElementById("salary").value = "";
     }
+
 </script>
