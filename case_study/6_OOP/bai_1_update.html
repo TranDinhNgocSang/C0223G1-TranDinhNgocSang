@@ -81,43 +81,31 @@
     display();
 
     function addStudent() {
-        let newStudent = new Students();
         let addId = prompt("nhập mã học viên");
         let addName = prompt("nhập tên học viên");
         let addClass = prompt("nhập lớp");
         let addEmail = prompt("nhập email");
         let addDateOfBith = prompt("nhập ngày sinh");
-        newStudent.id = addId;
-        newStudent.name = addName;
-        newStudent.classSchool = addClass;
-        newStudent.email = addEmail;
-        newStudent.dateOfBith = addDateOfBith;
+        let newStudent = new Students(addId, addName, addClass, addEmail, addDateOfBith);
         studentManagement.push(newStudent);
         display();
     }
 
     function editStudent() {
         let editId = prompt("nhập mã học viên cần chỉnh sửa");
-        let checkId;
-        let flag = false;
+        let flag = true;
         for (let i = 0; i < studentManagement.length; i++) {
             if (studentManagement[i].id === editId) {
-                checkId = i;
-                flag = true;
+                studentManagement[i].setId(editId);
+                studentManagement[i].setName(prompt("sủa tên học viên"));
+                studentManagement[i].setClassSchool(prompt("sửa lớp"));
+                studentManagement[i].setEmail(prompt("sửa email"));
+                studentManagement[i].setDateOfBith(prompt("sửa ngày sinh"));
+                flag = false;
                 break;
             }
         }
         if (flag) {
-            let editName = prompt("sửa tên học viên");
-            let editClass = prompt("sửa lớp");
-            let editEmail = prompt("sửa email");
-            let editDateOfBith = prompt("sửa ngày sinh");
-            studentManagement[checkId].id = editId;
-            studentManagement[checkId].name = editName;
-            studentManagement[checkId].classSchool = editClass;
-            studentManagement[checkId].email = editEmail;
-            studentManagement[checkId].dateOfBith = editDateOfBith;
-        } else {
             alert("Mã học viên không tồn tại");
         }
         display();
@@ -125,28 +113,21 @@
 
     function deleteStudent() {
         let deleteId = prompt("nhập mã học viên cần xóa");
-        let checkId;
-        let flag = false;
+        let flag = true;
         for (let i = 0; i < studentManagement.length; i++) {
             if (studentManagement[i].id === deleteId) {
-                checkId = i;
-                flag = true;
-                break;
-                studentManagement.splice(i, 1);
+                let conf = confirm("bạn có muốn xóa học viên này");
+                if (conf) {
+                    studentManagement.splice(i, 1);
+                }
+                flag = false;
             }
         }
         if (flag) {
-            let conf = confirm("bạn có muốn xóa học viên này")
-            if (conf) {
-                studentManagement.splice(checkId, 1);
-            }
-        }
-        else {
-            alert("Mã học viên không tồn tại");
+            alert("Mã học viên không tồn tại")
         }
         display();
     }
-
 
 
 </script>
