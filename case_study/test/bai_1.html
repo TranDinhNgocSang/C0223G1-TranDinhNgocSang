@@ -12,7 +12,7 @@
     do {
         var n = +prompt("nhập số phần tử của mảng <=50");
     } while (n > 50 || n < 0);
-    let arr = [15,2,3,5,10,15,7,8,9,10];
+    let arr = [];
     for (let i = 0; i < n; i++) {
         arr[i] = +prompt("nhập phần tử thứ: " + i);
     }
@@ -23,6 +23,9 @@
             sum += arr[i];
             count++
         }
+    }
+    if (count===0){
+        count = 1
     }
     let result = sum/count;
     alert(result)
