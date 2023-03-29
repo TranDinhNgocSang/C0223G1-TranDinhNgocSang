@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    do {
+        var n = +prompt("nhập số phần tử của mảng <=50");
+    } while (n > 50 || n < 0);
+    let arr = [15,2,3,5,10,15,7,8,9,10];
+    for (let i = 0; i < n; i++) {
+        arr[i] = +prompt("nhập phần tử thứ: " + i);
+    }
+    let sum = 0;
+    let count = 0;
+    for (let i = 0; i < arr.length; i += 3) {
+        if (arr[i] % 5 === 0) {
+            sum += arr[i];
+            count++
+        }
+    }
+    let result = sum/count;
+    alert(result)
+</script>

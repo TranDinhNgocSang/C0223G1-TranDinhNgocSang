@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let string ="   object    Oriented   programming  "
+    function vietTat(string) {
+        let arr = string.trim().split(" ");
+        let arr2 = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] !== "") {
+                arr2.push(arr[i]);
+            }
+        }
+        if (arr2.length > 1) {
+            for (let i = 0; i < arr2.length; i++) {
+                arr2[i] = arr2[i].charAt(0).toUpperCase();
+            }
+        } else {
+            alert("chuỗi chỉ có 1 từ nên k cần viết tắt");
+            arr2[0]= arr2[0].charAt(0).toUpperCase()+ arr2[0].slice(1)
+        }
+        string = arr2.join("");
+        alert(string);
+    }
+    vietTat(string);
+</script>

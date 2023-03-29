@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="themMoi()">thêm mới</button>
+<table id="bang" border="1"></table>
+</body>
+</html>
+<script>
+    class Maytinh {
+        constructor(maMay,tenMay,hangSanXuat,giaBan) {
+            this.maMay = maMay;
+            this.tenMay = tenMay;
+            this.hangSanXuat = hangSanXuat;
+            this.giaBan = giaBan;
+        }
+
+        getMaMay() {
+            return this.maMay;
+        }
+
+        getTenMay() {
+            return this.tenMay;
+        }
+
+        getHangSanXuat() {
+            return this.hangSanXuat;
+        }
+
+        getGiaBan() {
+            return this.giaBan;
+        }
+
+        setMaMay(value) {
+            this.maMay = value;
+        }
+
+        setTenMay(value) {
+            this.tenMay = value;
+        }
+
+        setHangSanXuat(value) {
+            this.hangSanXuat = value;
+        }
+
+        setGiaBan(value) {
+            this.giaBan = value;
+        }
+    }
+
+    let quanLyMayTinh = [];
+    let mayTinh1 = new Maytinh("AS","ASUS01","ASUS","15 trieu dong");
+    let mayTinh2 = new Maytinh("DL","DELL01","DELL","20 trieu dong");
+    quanLyMayTinh.push(mayTinh1,mayTinh2)
+
+    function hienThiBang() {
+        let bang = "<tr><th>Mã máy</th><th>Tên máy</th><th>Tên hãng sản xuất</th><th>Giá bán</th>";
+        for (let i =0; i<quanLyMayTinh.length;i++){
+            bang+=`<tr><td>${quanLyMayTinh[i].getMaMay()}</td><td>${quanLyMayTinh[i].getTenMay()}</td><td>${quanLyMayTinh[i].getHangSanXuat()}</td><td>${quanLyMayTinh[i].getGiaBan()}</td>`;
+        }
+        document.getElementById("bang").innerHTML = bang;
+    }
+    hienThiBang();
+    function themMoi() {
+        let themMaMay = prompt("thêm mã máy");
+        let themTenMay = prompt("thêm tên máy");
+        let themHangSanXuat = prompt("thêm hẫng sản xuất");
+        let themGiaBan = prompt("thêm giá bán");
+        let newNaytinh = new Maytinh(themMaMay,themTenMay,themHangSanXuat,themGiaBan,);
+        quanLyMayTinh.push(newNaytinh);
+        hienThiBang()
+
+    }
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  let arr = [1, 5, 7, 9];
+
+  function kiemTraChan(arr) {
+    let flag = true;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] % 2 !== 0) {
+        flag = false;
+      }
+    }
+    return flag;
+  }
+
+  function kiemTraLe(arr) {
+    let flag = true;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] % 2 === 0) {
+        flag = false;
+      }
+    }
+    return flag;
+  }
+
+  function kiemTraChanLe(arr) {
+    if (kiemTraChan(arr)) {
+      alert("mảng số chẳn");
+    } else if (kiemTraLe(arr)) {
+      alert("mảng số lẻ");
+    } else {
+      alert(" mảng vừa chẳ vừa lẻ");
+    }
+  }
+  kiemTraChanLe(arr);
+</script>

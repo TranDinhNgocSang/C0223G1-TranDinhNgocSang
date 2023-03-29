@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function checkFibonaci(num) {
+        let fibonaci = [0, 1];
+        for (let i = 2; i > 1; i++) {
+            fibonaci[i] = fibonaci[i - 2] + fibonaci[i - 1]
+            if (fibonaci[i] > num) {
+                break;
+            }
+        }
+        if (fibonaci.indexOf(num) !== -1) {
+            return num
+        }else {
+            return ""
+        }
+    }
+    function checkFibonaciOfArray(arr) {
+        let newArray = [];
+        for (let i = 0; i < arr.length; i++) {
+            newArray.push(checkFibonaci(arr[i]));
+        }
+        return newArray
+    }
+    let arr = [1,5,6,13,9,12,8,0,5,1];
+    let end = []
+    checkFibonaciOfArray(arr);
+    for (let i =0; i<checkFibonaciOfArray(arr).length; i++){
+        if (checkFibonaciOfArray(arr)[i] !== ""){
+            end.push(checkFibonaciOfArray(arr)[i])
+        }
+    }
+    alert(end.sort((a,b)=>{return a-b}))
+
+</script>
