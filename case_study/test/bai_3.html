@@ -9,35 +9,25 @@
 </body>
 </html>
 <script>
-    function checkFibonaci(num) {
+    let arr = [1, 5, 6, 13, 9, 12, 8, 0, 5, 1];
+    checkFibonaci(arr);
+    function checkFibonaci(arr) {
+        arr.sort((a, b) => {
+            return a - b
+        });
         let fibonaci = [0, 1];
-        for (let i = 2; i > 1; i++) {
-            fibonaci[i] = fibonaci[i - 2] + fibonaci[i - 1]
-            if (fibonaci[i] > num) {
-                break;
+        let i = 2;
+        let newArray = [];
+        while (fibonaci[fibonaci.length - 1] <= arr[arr.length - 1]) {
+            fibonaci[i] = fibonaci[i - 2] + fibonaci[i - 1];
+            i++;
+        }
+        for (let j = 0; j < arr.length; j++) {
+            if (fibonaci.indexOf(arr[j]) !== -1) {
+                newArray.push(arr[j])
             }
         }
-        if (fibonaci.indexOf(num) !== -1) {
-            return num
-        }else {
-            return ""
-        }
+        alert(newArray);
     }
-    function checkFibonaciOfArray(arr) {
-        let newArray = [];
-        for (let i = 0; i < arr.length; i++) {
-            newArray.push(checkFibonaci(arr[i]));
-        }
-        return newArray
-    }
-    let arr = [1,5,6,13,9,12,8,0,5,1];
-    let end = []
-    checkFibonaciOfArray(arr);
-    for (let i =0; i<checkFibonaciOfArray(arr).length; i++){
-        if (checkFibonaciOfArray(arr)[i] !== ""){
-            end.push(checkFibonaciOfArray(arr)[i])
-        }
-    }
-    alert(end.sort((a,b)=>{return a-b}))
 
 </script>
